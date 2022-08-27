@@ -1,0 +1,90 @@
+.details {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh; 
+    background-color: #f6f6f6;
+    transform: translateX(100vw); 
+    transition: transform 0.3s ease;    
+    .container{
+        min-height: 420px; 
+    } 
+    &--glucose{   
+        
+    }
+    &--current{
+        display: block;
+        transform: translateX(0);  
+    }
+    &__header {
+        padding: 16px;
+        margin-bottom: 16px;
+        width: 100%;        
+        height: 56px;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+    }
+
+    &__back-button {
+        margin-right: 15px;
+        padding: 0;
+        border: none;
+        background-color: transparent;
+    }
+
+    &__header-title {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;        
+        color: $green;
+    }    
+    &__content {
+        padding: 8px 0;
+        margin-bottom: 17px;
+        background-color: #fff;
+    }
+    &__list{
+        li:last-child{
+          border-bottom: 0;
+        }
+    }
+    &__title{
+        margin-bottom: 8px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;       
+    }
+    &__text{
+        padding: 12px;
+        border-radius: 6px;
+        margin-top: 15px;
+        margin-bottom: 8px;
+        border: 1px solid rgba($dark-green, 0.1);        
+        color: $dark-green;
+        background-color: rgba($green, 0.1);
+    }
+    &__img-wrapper{
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+        position: relative;
+    }
+    &__title-for-dish{
+        width: 100%;
+        padding: 16px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        color: #fff;
+        text-shadow: rgba(#000, 0.5) 0 0 4px;
+        padding: 16px;
+        background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    }
+}
+
