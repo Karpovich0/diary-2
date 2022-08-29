@@ -3,27 +3,13 @@
     position: relative;
     height: 100%;
     display: grid;
-    grid-template-rows: max-content 1fr;
+    grid-template-rows: 1fr;
     &--lock{
         overflow: hidden;
         height: 100vh;    
           
-    }
-    &__header {
-        padding: 20px 16px;
-        margin-bottom: 16px;
-        color: $font-black;
-        text-align: center;
-        font-weight: 700;
-        font-size: 1.5rem;
-        line-height: 1.8125rem;
-        border-bottom: 1px solid rgba(17, 17, 17, 0.15);
-        @media(max-width:599px){
-            display: none;
-        }
-    }
-    &__form-wrapper{
-              
+    }    
+    &__form-wrapper{        
     }
     &__form{
         display: grid;

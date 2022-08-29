@@ -1270,31 +1270,13 @@ input[type=number] {
   height: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: max-content 1fr;
-      grid-template-rows: -webkit-max-content 1fr;
-      grid-template-rows: max-content 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
 }
 
 .personal-info--lock {
   overflow: hidden;
   height: 100vh;
-}
-
-.personal-info__header {
-  padding: 20px 16px;
-  margin-bottom: 16px;
-  color: #111111;
-  text-align: center;
-  font-weight: 700;
-  font-size: 1.5rem;
-  line-height: 1.8125rem;
-  border-bottom: 1px solid rgba(17, 17, 17, 0.15);
-}
-
-@media (max-width: 599px) {
-  .personal-info__header {
-    display: none;
-  }
 }
 
 .personal-info__form {
