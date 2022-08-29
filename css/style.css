@@ -1508,6 +1508,7 @@ input[type=number] {
   display: grid;
   -ms-grid-rows: 4fr 6fr;
       grid-template-rows: 4fr 6fr;
+  grid-row-gap: 10px;
 }
 
 .message-animation__list {

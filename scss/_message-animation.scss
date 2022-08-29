@@ -16,6 +16,7 @@
 .message-animation {
     display: grid;
     grid-template-rows: 4fr 6fr;
+    grid-row-gap: 10px;
     &__list {    
         position: relative;           
     }
