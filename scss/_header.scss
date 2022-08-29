@@ -10,6 +10,9 @@
     text-combine-upright: 0;
     background-color: #fff;
     height: 56px;    
+    &--centred-text{       
+        justify-content: center;        
+    }
     &__title {        
         font-weight: 700;
         font-size: 20px;

@@ -80,7 +80,7 @@
         display: grid;
         grid-template-columns: 1fr;
     }
-    &__item{        
+    &__item{   
         padding: 8px 0;
         display: grid;
         grid-template-columns: 1fr max-content;
@@ -88,6 +88,9 @@
     }
     &__item-with-description{
         position: relative;        
+    }
+    &__item--with-input-description{
+        position: relative;
     }
     &__labels-description{
         text-align: right;
@@ -103,8 +106,7 @@
         align-items: center;
         color: #999999;
     }
-    &__label{
-        
+    &__label{        
         font-weight: 500;
         font-size: 0.875rem;
         line-height: 1.0625rem;        
@@ -177,8 +179,7 @@
         &--current{
             transform: scale(1);            
         }
-    }
-
+    }    
     &__radio-header {
         display: flex;
         justify-content: space-between;

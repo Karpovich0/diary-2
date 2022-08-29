@@ -1,0 +1,165 @@
+.personal-info {
+    padding: 0 16px;
+    position: relative;
+    height: 100%;
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    &--lock{
+        overflow: hidden;
+        height: 100vh;    
+          
+    }
+    &__header {
+        padding: 20px 16px;
+        margin-bottom: 16px;
+        color: $font-black;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.5rem;
+        line-height: 1.8125rem;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.15);
+        @media(max-width:599px){
+            display: none;
+        }
+    }
+    &__form-wrapper{
+              
+    }
+    &__form{
+        display: grid;
+        grid-template-rows: 1fr max-content;
+        height: 100%;
+    }
+    &__item{        
+        grid-template-columns: 1fr max-content;
+    }
+    &__switch-wrapper{
+        grid-column: 1/-1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 2px;
+        width: 100%;
+        height: 44px;
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 6px;
+        color: $font-black;        
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.1875rem;
+        font-family: inherit;
+        border: none;
+        transition: background-color 150ms ease-in-out 0s, box-shadow 150ms ease-in-out 0s;
+    }
+    &__radio-wrapper{        
+       color: $font-black;
+       font-weight: 400;
+    }
+    &__radio-label{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+    &__radio-input:checked+&__radio-label{       
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 13px;
+        color: $green;
+        background-color: rgb(255, 255, 255);
+        font-weight: 600;
+        border-radius: 4px;
+    }
+    &__button-wrapper{}
+    &__radio-input-wrapper{
+        background-color: #ffffff;
+        max-height: 800px;
+        top: 50%;
+        left: 50%;
+        transform: scale(0) translate(-50%, -50%); 
+        &--current{
+            transform: scale(1) translate(-50%, -50%); 
+        }
+        @media(max-width:599px){
+            max-height: unset;
+            height: 100%;
+            border-radius: 0;
+        }   
+    }
+    &__radio-row{
+        grid-column: 1/-1;
+        display: grid;       
+    }    
+    &__radio-col{
+        width: 100%;
+        border-bottom: 1px solid rgb(246, 246, 246);
+    }
+    &__radio-circle-input:checked+&__radio-circle-label::before{
+        background-color: $green;
+    }
+    &__radio-circle-input:checked+&__radio-circle-label::after{
+        content: "";
+    }
+    &__radio-circle-label{        
+        position: relative;
+        display: flex;  
+        align-items: center;
+        padding: 14px 0px;
+        color: $font-black;
+        column-gap: 10px;
+        &::before{
+            display: block;
+            content: "";
+            background-color: #ffffff;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            border: 1px solid rgb(153, 153, 153);
+        }
+        &::after{
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);            
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #ffffff;
+        }
+    }
+    &__submit-button{ 
+        width: 100%;
+        background-color: $green;
+        border:none;
+        color: white;
+        box-shadow: rgba(#000 ,0.24) 0px 0px 2px, rgba(#000, 0.12) 0px 0px 2px;
+        padding: 10px 12px;
+        margin: 20px 0;
+        border-radius: 6px;
+        min-height: 41px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        line-height: 1.0625rem;
+        font-family: inherit;
+        text-transform: uppercase;        
+    }
+    &__message{
+        position: absolute;
+        margin-top: 8px;
+        grid-column: 1/-1;
+        padding: 12px;
+        font-weight: 400;
+        color: $dark-green;
+        font-size: 0.875rem;
+        line-height: 1.0625rem;
+        border-radius: 6px;
+        border: 1px solid rgba(0,75,75,0.1);
+        background-color: rgba(0,126,126,0.1);
+        z-index: -100;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        &--active{
+            position: relative;
+            z-index: unset;
+            opacity: 1;
+        }
+    }
+}

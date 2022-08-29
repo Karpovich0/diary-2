@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgb(241, 242, 243); display: block; shape-rendering: auto;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+<defs><radialGradient id="ldio-jna9iwjb7vr-gradient" cx="0.5" cy="0.5" fx="0" fy="0" r="2">
+<stop offset="0%" stop-color="#a7c46a"></stop>
+<stop offset="100%" stop-color="#198b94"></stop>
+</radialGradient></defs>
+<g>
+<circle cx="50" cy="50" r="30" stroke="#a7c46a" stroke-width="12" fill="none" stroke-opacity="0.7"></circle>
+<circle cx="50" cy="50" r="30" stroke="url(#ldio-jna9iwjb7vr-gradient)" stroke-width="10" fill="none"></circle>
+<animateTransform attributeName="transform" type="rotate" values="0 50 50;360 50 50" times="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+</g>
+</svg>
