@@ -44,6 +44,7 @@ body{
     display: grid;
     grid-template-rows: 1fr;    
     &--lock{
+        height: 100vh;
         overflow: hidden;
         padding: 0;      
     }

@@ -6,12 +6,11 @@
     grid-template-rows: 1fr;
     &--lock{
         overflow: hidden;
-        height: 100vh;    
-          
+        height: 100%; 
     }    
     &__form-wrapper{        
     }
-    &__form{
+    &__form{        
         display: grid;
         grid-template-rows: 1fr max-content;
         height: 100%;
@@ -58,11 +57,11 @@
     &__radio-input-wrapper{
         background-color: #ffffff;
         max-height: 800px;
-        top: 50%;
+        top:0%;
         left: 50%;
-        transform: scale(0) translate(-50%, -50%); 
+        transform: scale(0) translate(-50%, 0); 
         &--current{
-            transform: scale(1) translate(-50%, -50%); 
+            transform: scale(1) translate(-50%, 0); 
         }
         @media(max-width:599px){
             max-height: unset;
