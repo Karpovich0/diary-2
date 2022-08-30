@@ -11,14 +11,6 @@
         display: grid;
         grid-template-rows: 1fr max-content;
     }
-    &__tip{
-        grid-column: 1/-1;
-        margin-top: 5px;
-        font-weight: 700;
-        font-size: 1rem;
-        line-height: 1.1875rem;       
-        color: rgb(17, 17, 17);
-    }
     &__radio-input-wrapper{
         max-width: 700px;
         background-color: #ffffff;

@@ -1613,15 +1613,6 @@ input[type=number] {
       grid-template-rows: 1fr max-content;
 }
 
-.doctor__tip {
-  grid-column: 1/-1;
-  margin-top: 5px;
-  font-weight: 700;
-  font-size: 1rem;
-  line-height: 1.1875rem;
-  color: #111111;
-}
-
 .doctor__radio-input-wrapper {
   max-width: 700px;
   background-color: #ffffff;
