@@ -1614,6 +1614,7 @@ input[type=number] {
 }
 
 .doctor__tip {
+  grid-column: 1/-1;
   margin-top: 5px;
   font-weight: 700;
   font-size: 1rem;
