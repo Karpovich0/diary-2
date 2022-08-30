@@ -1,6 +1,7 @@
 .data {
     display: grid;
     grid-template-rows: max-content 1fr;
+    height: 100%;
     &__buttons-wrapper {
         padding: 8px 0;       
     }

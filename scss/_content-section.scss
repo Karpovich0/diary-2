@@ -1,12 +1,12 @@
 .content-section {    
     display: none;
     padding-top: 10px;
-    min-height: calc(100vh - 156px);        
+    min-height: 100%;        
     grid-template-rows:max-content 1fr max-content; 
     transform: translateX(-100vw);   
     transition: transform 0.3s ease;
     @media(max-width:599px){
-        min-height: calc(100vh - 130px); 
+        min-height: 100%; 
     }
     &--current{
         transform: translateX(0);      
