@@ -1,5 +1,6 @@
 .details {
     display: none;
+    grid-template-rows: max-content 1fr;
     position: absolute;
     top: 0;
     left: 0;
@@ -9,14 +10,16 @@
     transform: translateX(100vw); 
     transition: transform 0.3s ease;    
     .container{
-        min-height: 420px; 
+        min-height: 420px;
+        height: 100%;
     } 
     &--glucose{   
         
     }
     &--current{
-        display: block;
-        transform: translateX(0);  
+        display: grid;
+        transform: translateX(0);
+        padding-bottom: 16px; 
     }
     &__header {
         padding: 16px;

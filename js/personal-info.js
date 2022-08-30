@@ -13,6 +13,8 @@ const height = document.querySelector("#popup-personal-height");
 const message = document.querySelector(".personal-info__message");
 const popupForm = document.querySelector(".popup__form");
 const messageAnimationWrapper = document.querySelector(".message-animation-wrapper");
+// animation
+const messageItemArray = document.querySelectorAll(".message-animation__item");
 
 // works with radio
 popupButton.addEventListener("click", function(evt){    
@@ -86,5 +88,24 @@ popupForm.addEventListener("submit", function(e){
 
 function openAnimationMessage(){
     messageAnimationWrapper.classList.add("message-animation-wrapper--opened");
-    main.classList.add("main--lock");   
+    main.classList.add("main--lock");
+    startAnimation();
 }
+
+function startAnimation(){
+    messageItemArray[0].classList.add("message-animation__item--visible");
+
+    let counter = 0;
+    let i = setInterval(function(){   
+        removeVisible(counter);
+        if(counter === messageItemArray.length-1) {
+            counter = -1;
+        }
+        setTimeout(function(){messageItemArray[++counter].classList.add("message-animation__item--visible")}, 1500); 
+        
+    }, 3000);
+
+    function removeVisible(index){
+        messageItemArray[index].classList.remove("message-animation__item--visible");
+    }
+};

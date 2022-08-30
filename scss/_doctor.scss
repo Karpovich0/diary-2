@@ -1,0 +1,96 @@
+.doctor {
+    height: 100%;
+    padding: 16px 0 0;
+    &__form-wrapper {
+        height: 100%;
+        display: grid;
+        grid-template-rows: max-content 1fr;
+    }
+    &__form{
+        height: 100%;
+        display: grid;
+        grid-template-rows: 1fr max-content;
+    }
+    &__tip{
+        margin-top: 5px;
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.1875rem;       
+        color: rgb(17, 17, 17);
+    }
+    &__radio-input-wrapper{
+        max-width: 700px;
+        background-color: #ffffff;
+        max-height: 800px;
+        top:50%;
+        left: 50%;
+        transform: scale(0) translate(-50%, -50%); 
+        &--current{
+            transform: scale(1) translate(-50%, -50%); 
+        }
+        @media(max-width:599px){
+            max-height: unset;
+            height: 100%;
+            border-radius: 0;
+        }   
+    }
+    &__input--button{
+        min-height: 44px;
+        height: auto;
+        &::after{
+            content: none;
+        }
+    }
+    &__radio-input:checked+&__radio-label::after{
+        content: none;
+    }
+    &__radio-label{
+        display: grid;
+        grid-template-columns: 1fr 62px;
+        grid-column-gap: 20px;
+    }
+    &__label-text-wrapper {
+    }
+
+    &__name, &__button-name{
+        margin-bottom: 2px;
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1.1875rem;      
+        color: rgb(17, 17, 17);
+    }
+
+    &__experience, &__button-experience{
+        margin-bottom: 4px;
+        font-weight: 400;
+        line-height: 1.0625rem;       
+        color: rgb(85, 85, 85);      
+        font-size: 16px;    
+    }
+
+    &__patients-number, &__button-patients-number{
+        font-weight: 400;
+        font-size: 0.75rem;
+        line-height: 1.0625rem;       
+        color: rgb(153, 153, 153);
+    }
+
+    &__label-img-wrapper { 
+        align-self: center;     
+    }
+
+    &__picture, &__button-picture{
+        width: 62px;
+        height: 62px;
+        border-radius: 4px;
+        object-fit: cover;
+    }
+    &__radio-button-label{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 62px;
+        grid-column-gap: 20px;
+    }
+}
+
+
