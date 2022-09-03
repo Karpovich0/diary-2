@@ -11,17 +11,17 @@
     transition: transform 0.3s ease;    
     .container{
         min-height: 420px;       
-    } 
-    &--dish{   
-        .container{
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-        }
-    }
+    }     
     &--current{
         display: grid;
         transform: translateX(0);
         padding-bottom: 16px; 
+    }
+    &--dish{ 
+        .container{
+            padding: 0;
+        }             
+        
     }
     &__dish-inner{
         display: grid;
@@ -42,7 +42,7 @@
     &__canvas {
         margin: 10px 0;
         max-width: 100%;
-        max-height: 100%;
+        max-height: 300px;
         font-size: 16px;
     }
     &__back-button {
@@ -94,16 +94,6 @@
         line-height: 1.0625rem;
         font-weight: 700;
     }
-    &__img-wrapper{
-        width: 100%;
-        max-width: 700px;
-        margin: 0 auto;
-        position: relative;
-        img{
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-    }
     &__title-for-dish{
         width: 100%;
         padding: 16px;
@@ -119,4 +109,6 @@
         background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
     }
 }
+
+
 

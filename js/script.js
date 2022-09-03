@@ -26,6 +26,10 @@ const headerSearchResults = document.querySelector(".header__search-results");
 const popupDatetimeArray = document.querySelectorAll(".popup__input--datetime");
 // stop reload after submit form
 const popupFormArray = document.querySelectorAll(".popup__form");
+// calculator progress bar
+const caclculatorTopBarCurrent = document.querySelector(".calculator__dish-kcal-current");
+const caclculatorTopBarMax = document.querySelector(".calculator__dish-kcal-max");
+const caclculatorTopBarProgress = document.querySelector(".calculator__dish-progress-span");
 
 //listen click on button to make section current
 for(let i = 0; i < dataButtonArray.length; i++){
@@ -222,7 +226,6 @@ function removeCurrentSection(){
 
 // u need to delete old function on 36-45 lines that I commented
 
-
 // UPDATE
 function generateDate(){
     var date = new Date();
@@ -263,3 +266,6 @@ for(let i = 0; i < popupFormArray.length; i++){
         popupButtonResetCloseArray[i].click();
     })
 }
+// CALCULATOR
+caclculatorTopBarProgress.style.width = ((450/850)*100)+"%";
+caclculatorTopBarCurrent.innerHTML = "450";
