@@ -58,13 +58,13 @@
                         <li class="content-section__item list__item">
                             <button type="button" class="content-section__button list__content">
                                 <time class="content-section__name list__name">8/9/2022, 9:38 PM</time>
-                                <span class="content-section__glucose-level">5.5 ммоль/л</span>
+                                <span class="content-section__glucose-level">2 записи</span>
                             </button>
                         </li>
                         <li class="content-section__item list__item">
                             <button type="button" class="content-section__button list__content">
                                 <time class="content-section__name list__name">8/9/2022, 9:38 PM</time>
-                                <span class="content-section__glucose-level">5.5 ммоль/л</span>
+                                <span class="content-section__glucose-level">2 записи</span>
                             </button>
                         </li>
                         <li class="content-section__item list__item">
@@ -166,45 +166,79 @@
                     <span class="visually-hidden">Назад</span>
                 </button>
                 <p class="details__header-title">
-                    2022-08-15 18:58:10.656835
+                  date
                 </p>
             </div>    
-            <div class="container">       
-            <div class="details__content">
-                <h3 class="details__title">
-                    Ваши данные
-                </h3>
-                <ul class="details__list list">
-                    <li class="list__item">
-                        <div class="list__name">Дата и время</div>
-                        <div class="list__content">8/9/2022, 9:38 PM</div>
+            <div class="container">
+                <div class="details__chart">
+                    <canvas class="details__canvas" id="glucose-chart" width="400" height="400"></canvas>
+                </div>
+                <ul class="details__records-list">
+                    <li class="details__content">
+                        <h3 class="details__title">
+                            9:20 - натощак перед приемом пищи
+                        </h3>
+                        <ul class="details__list list">
+                            <li class="list__item">
+                                <div class="list__name">Уровень глюкозы</div>
+                                <div class="list__content">5.5 ммоль/л</div>
+                            </li>                           
+                            <li class="list__item">
+                                <div class="list__name">Тип инсулина</div>
+                                <div class="list__content">Короткого действия</div>
+                            </li>
+                            <li class="list__item">
+                                <div class="list__name">Количество вводимого инсулина</div>
+                                <div class="list__content">5 ед.</div>
+                            </li>
+                            <li class="list__item">
+                                <div class="list__name">Препарат</div>
+                                <div class="list__content">Манинил</div>
+                            </li>
+                            <li class="list__item">
+                                <div class="list__name">Дозировка препарата</div>
+                                <div class="list__content">5 ед.</div>
+                            </li>
+                            <li class="list__item">
+                                <div class="details__commentary">
+                                    Тестовый комментарий   
+                                </div>
+                            </li>
+                        </ul>                
                     </li>
-                    <li class="list__item">
-                        <div class="list__name">Уровень глюкозы</div>
-                        <div class="list__content">5.5 ммоль/л</div>
+                    <li class="details__content">
+                        <h3 class="details__title">
+                            21:39 - через 2 часа после ужина
+                        </h3>
+                        <ul class="details__list list">                           
+                            <li class="list__item">
+                                <div class="list__name">Уровень глюкозы</div>
+                                <div class="list__content">4,2 ммоль/л</div>
+                            </li>                            
+                            <li class="list__item">
+                                <div class="list__name">Тип инсулина</div>
+                                <div class="list__content">Среднего действия</div>
+                            </li>
+                            <li class="list__item">
+                                <div class="list__name">Количество вводимого инсулина</div>
+                                <div class="list__content">5 ед.</div>
+                            </li>
+                            <li class="list__item">
+                                <div class="list__name">Препарат</div>
+                                <div class="list__content">Манинил</div>
+                            </li>
+                            <li class="list__item">
+                                <div class="list__name">Дозировка препарата</div>
+                                <div class="list__content">10 мг.</div>
+                            </li>
+                            <li class="list__item">
+                                <div class="details__commentary">
+                                    Тестовый комментарий   
+                                </div>
+                            </li>
+                        </ul>                
                     </li>
-                    <li class="list__item">
-                        <div class="list__name">Тип измерения</div>
-                        <div class="list__content">Натощак перед приемом пищи</div>
-                    </li>
-                    <li class="list__item">
-                        <div class="list__name">Тип инсулина</div>
-                        <div class="list__content">Короткого действия</div>
-                    </li>
-                    <li class="list__item">
-                        <div class="list__name">Количество вводимого инсулина</div>
-                        <div class="list__content">5 ед.</div>
-                    </li>
-                </ul>                
-            </div>
-            <div class="details__commentary">
-                <h3 class="details__title">
-                    Комментарий
-                </h3>
-                <p class="details__text">
-                    Тестовый комментарий
-                </p>
-            </div>
+                </ul>
             </div>
         </section>
 
@@ -218,30 +252,44 @@
                     8/9/2022, 9:38 PM
                 </p>
             </div>     
-            <div class="container">       
-            <div class="details__content">
-                <h3 class="details__title">
-                    Ваши данные
-                </h3>
-                <ul class="details__list list">
-                    <li class="list__item">
-                        <div class="list__name">Дата и время</div>
-                        <div class="list__content">8/9/2022, 9:38 PM</div>
+            <div class="container"> 
+                <div class="details__chart">
+                    <canvas class="details__canvas" id="weight-chart" width="400" height="400"></canvas>
+                </div>
+                <ul class="details__records-list">
+                    <li class="details__content">
+                        <h3 class="details__title">
+                            02.08.2022, 19:30
+                        </h3>
+                        <ul class="details__list list">
+                            <li class="list__item">
+                                <div class="list__name">Вес</div>
+                                <div class="list__content">64 кг.</div>
+                            </li> 
+                            <li class="list__item">
+                                <div class="details__commentary">
+                                    Тестовый комментарий   
+                                </div>
+                            </li>
+                        </ul>                
                     </li>
-                    <li class="list__item">
-                        <div class="list__name">Вес</div>
-                        <div class="list__content">50 кг.</div>
-                    </li>                    
-                </ul>                
-            </div>
-            <div class="details__commentary">
-                <h3 class="details__title">
-                    Комментарий
-                </h3>
-                <p class="details__text">
-                    Тестовый комментарий
-                </p>
-            </div>
+                    <li class="details__content">
+                        <h3 class="details__title">
+                            04.08.2022, 20:00
+                        </h3>
+                        <ul class="details__list list">
+                            <li class="list__item">
+                                <div class="list__name">Вес</div>
+                                <div class="list__content">63 кг.</div>
+                            </li> 
+                            <li class="list__item">
+                                <div class="details__commentary">
+                                    Тестовый комментарий   
+                                </div>
+                            </li>
+                        </ul>                
+                    </li>
+                </ul>
             </div>
         </section>
         <section class="details details--dish"> 
@@ -434,6 +482,8 @@
         </section>
     </div>    
 
-    <script src="js/script.js"></script>    
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/chart-script.js"></script>
 </body>
 </html>

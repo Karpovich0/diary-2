@@ -5,13 +5,12 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh; 
+    min-height: 100vh; 
     background-color: #f6f6f6;
     transform: translateX(100vw); 
     transition: transform 0.3s ease;    
     .container{
-        min-height: 420px;
-        max-height: 100%;
+        min-height: 420px;       
     } 
     &--dish{   
         .container{
@@ -37,7 +36,15 @@
         display: flex;
         align-items: center;
     }
+    &__chart {
+    }
 
+    &__canvas {
+        margin: 10px 0;
+        max-width: 100%;
+        max-height: 100%;
+        font-size: 16px;
+    }
     &__back-button {
         margin-right: 15px;
         padding: 0;
@@ -52,12 +59,20 @@
         color: $green;
     }    
     &__content {
-        padding: 8px 0;
-        margin-bottom: 17px;
+        margin-bottom: 10px;
+        padding: 8px 0;        
         background-color: #fff;
     }
-    &__list{
+    &__content:last-child &__list{
         li:last-child{
+          border-bottom: 0;
+        }
+    }
+    &__content:last-child{
+        margin-bottom: 0;
+    }
+    &__list{
+        li:nth-last-child(2){
           border-bottom: 0;
         }
     }
@@ -67,14 +82,17 @@
         font-size: 16px;
         line-height: 19px;       
     }
-    &__text{
+    &__commentary{
+        flex-grow: 1;
         padding: 12px;
-        border-radius: 6px;
-        margin-top: 15px;
+        border-radius: 6px;        
         margin-bottom: 8px;
         border: 1px solid rgba($dark-green, 0.1);        
         color: $dark-green;
         background-color: rgba($green, 0.1);
+        font-size: 0.875rem;
+        line-height: 1.0625rem;
+        font-weight: 700;
     }
     &__img-wrapper{
         width: 100%;
