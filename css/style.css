@@ -1010,7 +1010,7 @@ body {
   height: 100%;
 }
 
-.calculator__header-wrapper {
+.calculator__header-wrapper--gray {
   background-color: #EDEDED;
 }
 

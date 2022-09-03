@@ -9,7 +9,10 @@
       padding: 0;       
       height: 100%;
       &__header-wrapper{   
-            background-color: #EDEDED;         
+                 
+      }
+      &__header-wrapper--gray{
+            background-color: #EDEDED;  
       }
       &__header {
             margin: 0 auto;
