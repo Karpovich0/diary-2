@@ -1010,6 +1010,10 @@ body {
   height: 100%;
 }
 
+.calculator__header-wrapper {
+  background-color: #EDEDED;
+}
+
 .calculator__header {
   margin: 0 auto;
   padding: 16px 22px;
