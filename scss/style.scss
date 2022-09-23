@@ -12,7 +12,14 @@ body{
     font-weight: 400;
     font-size: 16px;
     min-height: 100vh;  
-    background-color: #f6f6f6;        
+    background-color: #f6f6f6;  
+    input,
+    textarea,
+    button,
+    select,
+    a {
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }      
 }
 .body{   
     &--lock{
@@ -127,4 +134,5 @@ body{
 @import 'doctor';
 @import 'subscription';
 @import 'pay';
+@import 'filter';
 

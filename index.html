@@ -53,6 +53,49 @@
             </div>
             <div class="data__sections-wrapper">
                 <section class="content-section content-section--glucose content-section--current">
+                    <div class="filter">
+                        <button type="button" class="filter__button"><span class="filter__button-text">За неделю</span><span class="filter__button-span">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24"  height="24" ><defs><svg id="Bold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5,12a2.3,2.3,0,0,1-.78,1.729L7.568,23.54a1.847,1.847,0,0,1-2.439-2.773l9.752-8.579a.25.25,0,0,0,0-.376L5.129,3.233A1.847,1.847,0,0,1,7.568.46l11.148,9.808A2.31,2.31,0,0,1,19.5,12Z"></path></svg></defs><use xlink:href="#Bold" fill="#999999"></use></svg>
+                        </button>
+                        <form class="filter__body">
+                            <ul class="filter__list list">
+                                <li class="filter__item list__item">
+                                    <input id="filter-for-week" type="radio" checked class="filter__radio-input visually-hidden" name="filter" value="filter-for-week">
+                                    <label for="filter-for-week" class="filter__radio-label">За неделю</label>
+                                </li>
+                                <li class="filter__item list__item">
+                                    <input id="filter-for-month" type="radio" class="filter__radio-input visually-hidden" name="filter" value="filter-for-month">
+                                    <label for="filter-for-month" class="filter__radio-label">За месяц</label>
+                                </li>
+                                <li class="filter__item list__item">
+                                    <input id="filter-for-three-months" type="radio" class="filter__radio-input visually-hidden" name="filter" value="filter-for-three-months">
+                                    <label for="filter-for-three-months" class="filter__radio-label">За три месяца</label>
+                                </li>
+                                <li class="filter__item list__item">
+                                    <input id="filter-half-of-year" type="radio" class="filter__radio-input visually-hidden" name="filter" value="filter-half-of-year">
+                                    <label for="filter-half-of-year" class="filter__radio-label">За полгода</label>
+                                </li>
+                                <li class="filter__item list__item">
+                                    <input id="filter-for-year" type="radio" class="filter__radio-input visually-hidden" name="filter" value="filter-for-year">
+                                    <label for="filter-for-year" class="filter__radio-label">За 1 год</label>
+                                </li>
+                                <div class="filter__item list__item">                                    
+                                    <button type="button" for="" class="filter__radio-button">За период</button>
+                                    <div class="filter__period-wrapper">
+                                        <button type="button" class="filter__period-button-back"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="#007e7e"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>Назад</button>
+                                        <label for="filter-period-date1" class="filter__period-input-text">Укажите первую дату:</label>
+                                        <input type="date" class="filter__period-input-date" name="filter-period-date1" id="filter-period-date1">
+                                        <label for="filter-period-date2" class="filter__period-input-text">Укажите вторую дату:</label>
+                                        <input type="date" class="filter__period-input-date" name="filter-period-date2" id="filter-period-date2">
+                                        <div class="filter__period-button-show-wrapper">
+                                            <button type="button" class="filter__period-button-show">Показать за период</button>
+                                        </div>
+                                    </div>
+                                </div>                             
+                            </ul>
+                        </form>
+                    </div>
+                    <canvas id="index-glucose-chart" width="400" height="100" class="content-section__canvas"></canvas>                    
                     <ul class="content-section__list list">
                         <li class="content-section__item list__item">
                             <button type="button" class="content-section__button list__content">
@@ -393,5 +436,7 @@
     <script type="module" src="js/response.js"></script>
     <script src="js/chart-script.js" type="module"></script>    
     <script src="js/fill-meal.js" type="module"></script>   
+    <script src="js/chart-for-glucose.js"></script>
+    <script src="js/filter.js"></script>
 </body>
 </html>

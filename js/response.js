@@ -4,9 +4,9 @@ export const responseGlucose = [
         "user_id": "5M3c6hXFTNO7.faCR0OZJw",  
         "date_time": "06.09.2022, 21:20:51",  
         "measure_type": "Вечером перед приемом пищи",  
-        "glucose_level": "5,3",  
+        "glucose_level": "5.3",  
         "insulin_type": "Длительного действия",  
-        "insulin_injection": "6,5",  
+        "insulin_injection": "6.5",  
         "comment": "Тестовый комментарий 2."  
     }
 ];

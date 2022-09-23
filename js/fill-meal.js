@@ -29,7 +29,7 @@ const lipid = findSum("lipid");
 const xe = findSum("bread_units");
 const kcal = findSum("kcal");
 
-if(kcal <= responseFood[0].daily_max_kcal){
+if(Number(kcal) <= Number(responseFood[0].daily_max_kcal)){
     caclculatorProgress.style.width = ((kcal/responseFood[0].daily_max_kcal)*100)+"%";
 }else{
     caclculatorProgress.style.backgroundColor = "red";
@@ -58,9 +58,9 @@ function findSum(property){
     for(let i = 0; i < responseFood.length; i++){
         sum += +responseFood[i][property];
     }
+
     sum = sum.toFixed(1).replace(".0", "");
-    console.log(sum);
-    
+
     return sum;
 }
 

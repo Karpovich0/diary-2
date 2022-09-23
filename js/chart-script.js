@@ -156,7 +156,7 @@ function getAllDate(dataObject, item){
 
     if(item !== "date_time"){
         arr = arr.map(item =>{
-            return +item.replace(/\,/g,'.');
+            return +item;
         });
     }else if(!dataObject[0].Weight){
         arr = arr.map(item =>{

@@ -11,6 +11,14 @@ body {
   background-color: #f6f6f6;
 }
 
+body input,
+body textarea,
+body button,
+body select,
+body a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 .body--lock {
   overflow: hidden;
 }
@@ -389,6 +397,12 @@ body {
   }
 }
 
+.content-section--glucose {
+  -ms-grid-rows: max-content max-content max-content 1fr max-content;
+      grid-template-rows: -webkit-max-content -webkit-max-content -webkit-max-content 1fr -webkit-max-content;
+      grid-template-rows: max-content max-content max-content 1fr max-content;
+}
+
 .content-section--current {
   -webkit-transform: translateX(0);
       -ms-transform: translateX(0);
@@ -507,6 +521,13 @@ body {
 
 .content-section__input-data-button svg {
   fill: #fff;
+}
+
+.content-section__canvas {
+  margin: 10px 0;
+  max-width: 100%;
+  max-height: 200px;
+  font-size: 16px;
 }
 
 .list__item {
@@ -1800,4 +1821,289 @@ input[type=number] {
       -ms-flex-positive: 1;
           flex-grow: 1;
   text-align: center;
+}
+
+.filter {
+  position: relative;
+}
+
+.filter__button {
+  padding: 5px 15px 5px 37px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto;
+      grid-template-columns: 1fr auto;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-column-gap: 10px;
+  position: relative;
+  height: 34px;
+  width: 100%;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  color: #007e7e;
+  background-color: white;
+  font-weight: 600;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 7px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 7px;
+  z-index: 1;
+  outline-color: #007e7e;
+}
+
+.filter__button-span {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: -webkit-transform 0.2s ease;
+  -o-transition: transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+}
+
+.filter__button-span--opened {
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.filter__button-span svg {
+  width: 12px;
+  height: 12px;
+}
+
+.filter__body {
+  padding: 40px 10px 5px;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 7px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 7px;
+  -webkit-transform: scale(1, 0);
+      -ms-transform: scale(1, 0);
+          transform: scale(1, 0);
+  opacity: 0;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  -webkit-transform-origin: 0 0;
+      -ms-transform-origin: 0 0;
+          transform-origin: 0 0;
+}
+
+.filter__body--visible {
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+      -ms-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+.filter__item:last-child .filter__list-button {
+  border-bottom: none;
+}
+
+.filter__radio-input:checked + .filter__radio-label::after {
+  content: "";
+}
+
+.filter__radio-label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+
+.filter__radio-label::after {
+  content: none;
+  width: 25px;
+  height: 25px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  background-color: #007e7e;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%23fff'%3E%3Cpath d='M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z'/%3E%3C/svg%3E");
+  -webkit-background-size: 75% 75%;
+          background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.filter__radio-button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.filter__radio-button::after {
+  content: "";
+  width: 25px;
+  height: 25px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  -webkit-background-size: 59% 59%;
+          background-size: 59%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' fill='%23007e7e'%3E%3Cpath d='M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z'/%3E%3C/svg%3E");
+  -webkit-background-size: 75% 75%;
+          background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.filter .list__item:last-child {
+  border-bottom: 0;
+}
+
+.filter .list__item {
+  padding: 0 2px;
+}
+
+.filter__period-wrapper {
+  padding: 50px 10px 5px;
+  position: absolute;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (auto)[5] 1fr;
+      grid-template-rows: repeat(5, auto) 1fr;
+  row-gap: 10px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 290px;
+  background-color: #ffffff;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 7px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 7px;
+  -webkit-transform: scale(0, 1);
+      -ms-transform: scale(0, 1);
+          transform: scale(0, 1);
+  opacity: 0;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  -webkit-transform-origin: top right;
+      -ms-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.filter__period-wrapper--opened {
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+      -ms-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+.filter__period-button-show-wrapper {
+  margin-bottom: 5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: column-reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+
+.filter__period-button-back {
+  padding: 5px 50px 5px 15px;
+  margin-bottom: 5px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 1fr;
+      grid-template-columns: auto 1fr;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-column-gap: 10px;
+  height: 34px;
+  width: 100%;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  color: #111111;
+  background-color: white;
+  font-weight: 400;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 7px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 7px;
+  z-index: 1;
+  outline-color: #007e7e;
+}
+
+.filter__period-button-back svg {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+  width: 20px;
+  height: 20px;
+}
+
+.filter__period-input-text {
+  color: #111111;
+  font-weight: 400;
+}
+
+.filter__period-input-date {
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+  font-family: inherit;
+}
+
+.filter__period-button-show {
+  height: 34px;
+  width: 100%;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  color: #ffffff;
+  background-color: #007e7e;
+  font-weight: 400;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 7px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 7px;
+  z-index: 1;
+  outline-color: #007e7e;
 }
