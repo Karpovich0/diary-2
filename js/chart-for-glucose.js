@@ -1,15 +1,30 @@
 const ctx = document.getElementById('index-glucose-chart').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'line',
-    data: {
-        labels: ['09:15', '12:00', '22:00'],
-        // , '06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00', '00:00'
+    data:{
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         datasets: [{
-            label: '# of Votes',
-            data: [5.3, 6, 5.5],
-            backgroundColor: 'transparent',
-            borderColor: 'rgb(0, 126, 126)',
-            borderWidth: 2,
+          label: 'Weekly Sales',
+          data: [18, 12, 6, 9, 12, 3, 9],
+          backgroundColor: [
+            'rgba(255, 26, 104, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(0, 0, 0, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 26, 104, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(0, 0, 0, 1)'
+          ],
+          borderWidth: 1
         }]
     },
     options: {
