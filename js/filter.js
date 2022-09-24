@@ -1,51 +1,76 @@
-const filterButton = document.querySelector(".filter__button");
-const filterButtonText = document.querySelector(".filter__button-text");
-const filterBody = document.querySelector(".filter__body");
-const filterSpan = document.querySelector(".filter__button-span");
-const filterLabelArray =  document.querySelectorAll(".filter__radio-label");
-const filterRadioInputArray = document.querySelectorAll(".filter__radio-input");
-const filterPeriod =  document.querySelector(".filter__radio-button");
-const filterBack =  document.querySelector(".filter__period-button-back");
-const filterShow =  document.querySelector(".filter__period-button-show");
-const filterPeriodWrapper = document.querySelector(".filter__period-wrapper");
-const filterValue = document.querySelector(".checkbox-value");
-const form = document.querySelector(".filter__body");
+const filterButtonArray = document.querySelectorAll(".filter__button");
+const filterButtonTextArray = document.querySelectorAll(".filter__button-text");
 
-filterButton.addEventListener("click", function(){
-    toggleList();
-});
+const filterBodyArray = document.querySelectorAll(".filter__body");
+const filterSpanArray = document.querySelectorAll(".filter__button-span");
 
-filterLabelArray.forEach((item, index) => item.addEventListener("click", function(e){
-    toggleList();
-    filterButtonText.innerHTML = filterLabelArray[index].innerHTML;
-    filterValue.value = filterRadioInputArray[index].value;
-    makeRequest(form);       
-}));
+const filterLabelGlucoseArray =  document.querySelectorAll(".filter__radio-label--glucose");
+const filterLabelWeightArray =  document.querySelectorAll(".filter__radio-label--weight");
+const filterLabelDishArray =  document.querySelectorAll(".filter__radio-label--dish");
 
-filterPeriod.addEventListener("click", function(){
-    filterPeriodWrapper.classList.add("filter__period-wrapper--opened");
-});
+const filterRadioInputGlucoseArray = document.querySelectorAll(".filter__radio-input--glucose");
+const filterRadioInputWeightArray = document.querySelectorAll(".filter__radio-input");
+const filterRadioInputDishArray = document.querySelectorAll(".filter__radio-input");
+const filterRadioInputArray = [filterRadioInputGlucoseArray, filterRadioInputWeightArray, filterRadioInputDishArray];
 
-filterBack.addEventListener("click", function(){
-    filterPeriodWrapper.classList.remove("filter__period-wrapper--opened");
-});
+const filterPeriodArray =  document.querySelectorAll(".filter__radio-button");
+const filterBackArray =  document.querySelectorAll(".filter__period-button-back");
+const filterShowArray =  document.querySelectorAll(".filter__period-button-show");
+const filterPeriodWrapperArray = document.querySelectorAll(".filter__period-wrapper");
 
-filterShow.addEventListener("click", function(){    
-    filterPeriodWrapper.classList.remove("filter__period-wrapper--opened");     
-    filterRadioInputArray.forEach(item => item.checked = false);
-    toggleList();
-    filterButtonText.innerHTML = filterPeriod.innerHTML;   
-    filterValue.value = "";
-    makeRequest(form);       
-});
+const filterValueArray = document.querySelectorAll(".checkbox-value");
 
-function toggleList(){    
-    filterBody.classList.toggle("filter__body--visible");
-    filterSpan.classList.toggle("filter__button-span--opened");
+const formArray = document.querySelectorAll(".filter__body");
+
+const dataFilterButtonArray = document.querySelectorAll(".data__button");
+
+let filterFormIndex = 0;
+
+dataFilterButtonArray.forEach((item, index) => item.addEventListener("click", function(){
+    closeFilter(index, dataFilterButtonArray.length);
+    }
+    )
+);
+
+filterButtonArray.forEach((item, index) => item.addEventListener("click", function(){
+        toggleList(index);
+        filterFormIndex = index;
+        }
+    )
+);
+
+setListener(filterLabelGlucoseArray, filterRadioInputGlucoseArray);
+setListener(filterLabelWeightArray, filterRadioInputWeightArray);
+setListener(filterLabelDishArray, filterRadioInputDishArray);
+
+filterPeriodArray.forEach((item) => item.addEventListener("click", function(){
+        filterPeriodWrapperArray[filterFormIndex].classList.add("filter__period-wrapper--opened")
+    })
+);
+
+filterBackArray.forEach((item) => item.addEventListener("click", function(){
+        filterPeriodWrapperArray[filterFormIndex].classList.remove("filter__period-wrapper--opened");
+    })
+);
+
+
+filterShowArray.forEach((item, index) =>  item.addEventListener("click", function(){
+        filterPeriodWrapperArray[filterFormIndex].classList.remove("filter__period-wrapper--opened");     
+        filterRadioInputArray[filterFormIndex].forEach(item => item.checked = false);
+        toggleList(filterFormIndex);
+        filterButtonTextArray[filterFormIndex].innerHTML = filterPeriodArray[filterFormIndex].innerHTML;   
+        filterValueArray[filterFormIndex].value = "";
+        makeRequest();     
+    })
+);
+
+function toggleList(index){    
+    filterBodyArray[index].classList.toggle("filter__body--visible");
+    filterSpanArray[index].classList.toggle("filter__button-span--opened");
 }
 
-function makeRequest(form){
-    const formData = new FormData(form);
+function makeRequest(){
+    const formData = new FormData(formArray[filterFormIndex]);
     const searchParam = new URLSearchParams(formData); 
     // change link
     fetch('https://httpbin.org/post', {
@@ -57,6 +82,30 @@ function makeRequest(form){
         console.log(text);
     });
 };
+
+function setListener(arr, inputArray){
+    arr.forEach((item, index) => item.addEventListener("click", function(e){
+        toggleList(filterFormIndex);
+        filterButtonTextArray[filterFormIndex].innerHTML = arr[index].innerHTML;
+        filterValueArray[filterFormIndex].value = inputArray[index].value;
+        makeRequest();       
+    }));
+}
+
+function closeFilter(index, length){
+    for(let i = 0; i < length; i++){
+        if(i !== index){
+            filterBodyArray[i].classList.remove("filter__body--visible");
+            filterSpanArray[i].classList.remove("filter__button-span--opened");
+
+            if(filterPeriodWrapperArray[i].classList.contains("filter__period-wrapper--opened")){
+            filterPeriodWrapperArray[i].classList.remove("filter__period-wrapper--opened");
+        }
+        }
+    }
+    
+}
+
 
 
 
