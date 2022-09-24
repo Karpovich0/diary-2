@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schedule</title>
+    <title>Дневник</title>
     <!-- fonts start-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,7 +57,7 @@
                         <button type="button" class="filter__button"><span class="filter__button-text">За неделю</span><span class="filter__button-span">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24"  height="24" ><defs><svg id="Bold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5,12a2.3,2.3,0,0,1-.78,1.729L7.568,23.54a1.847,1.847,0,0,1-2.439-2.773l9.752-8.579a.25.25,0,0,0,0-.376L5.129,3.233A1.847,1.847,0,0,1,7.568.46l11.148,9.808A2.31,2.31,0,0,1,19.5,12Z"></path></svg></defs><use xlink:href="#Bold" fill="#999999"></use></svg>
                         </button>
-                        <form class="filter__body">
+                        <form  class="filter__body">
                             <ul class="filter__list list">
                                 <li class="filter__item list__item">
                                     <input id="filter-for-week" checked type="radio" class="filter__radio-input visually-hidden" name="filter" value="filter-for-week">
@@ -79,6 +79,7 @@
                                     <input id="filter-for-year" type="radio" class="filter__radio-input visually-hidden" name="filter" value="filter-for-year">
                                     <label for="filter-for-year" class="filter__radio-label">За 1 год</label>
                                 </li>
+                                <input type="text" class="visually-hidden checkbox-value" name="filter-value">
                                 <div class="filter__item list__item">                                    
                                     <button type="button" for="" class="filter__radio-button">За период</button>
                                     <div class="filter__period-wrapper">
@@ -104,12 +105,12 @@
                             </button>
                         </li>                                       
                     </ul>
-                    <div class="conatent-section__button-add-wrapper">
+                    <!-- <div class="conatent-section__button-add-wrapper">
                         <button type="button" class="content-section__button-add">Добавить</button>
-                    </div>
-                    <button type="button" class="content-section__input-data-button content-section__input-data-button--glucose">
+                    </div> -->
+                    <!-- <button type="button" class="content-section__input-data-button content-section__input-data-button--glucose">
                         <svg id="Bold" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path d="M12.842.447a1.036,1.036,0,0,0-1.684,0C11.086.558,4,11.735,4,15.986a8,8,0,0,0,16,0C20,11.736,12.914.558,12.842.447ZM12,21.236a5.256,5.256,0,0,1-5.25-5.25.75.75,0,0,1,1.5,0A3.755,3.755,0,0,0,12,19.736a.75.75,0,1,1,0,1.5Z"></path></svg>
-                    </button>
+                    </button> -->
                 </section>
                 <section class="content-section content-section--weight">
                     <ul class="content-section__list list">
@@ -120,12 +121,12 @@
                             </button>
                         </li>                                                                   
                     </ul>
-                    <div class="conatent-section__button-add-wrapper">
+                    <!-- <div class="conatent-section__button-add-wrapper">
                         <button type="button" class="content-section__button-add">Добавить</button>
-                    </div> 
-                    <button type="button" class="content-section__input-data-button content-section__input-data-button--weight">
+                    </div>  -->
+                    <!-- <button type="button" class="content-section__input-data-button content-section__input-data-button--weight">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="21" height="22"><path fill="#FFFFFF" d="M23.441,5.085a1.493,1.493,0,0,0-.553-1.328A17.2,17.2,0,0,0,12,0,17.2,17.2,0,0,0,1.113,3.757,1.493,1.493,0,0,0,.559,5.085l1.85,17.571A1.5,1.5,0,0,0,3.9,24H20.1a1.5,1.5,0,0,0,1.491-1.343ZM20.5,8.5A.5.5,0,0,1,20,9H13.721a.5.5,0,0,1-.475-.342l-.772-2.316a.52.52,0,0,0-.948,0l-.772,2.316A.5.5,0,0,1,10.28,9H4a.5.5,0,0,1-.5-.5V5.367a.5.5,0,0,1,.226-.419A14.422,14.422,0,0,1,5.8,3.828a.5.5,0,0,1,.674.291L7.211,6.2a.75.75,0,1,0,1.414-.5L7.85,3.511A.393.393,0,0,1,8.12,3a14.681,14.681,0,0,1,2.589-.441.5.5,0,0,1,.541.5V4a.75.75,0,0,0,1.5,0V3.057a.5.5,0,0,1,.542-.5A14.654,14.654,0,0,1,15.88,3a.393.393,0,0,1,.27.511L15.375,5.7a.75.75,0,1,0,1.414.5l.737-2.085a.5.5,0,0,1,.674-.291,14.369,14.369,0,0,1,2.074,1.12.5.5,0,0,1,.226.418Z"></path></svg>
-                    </button>
+                    </button> -->
                 </section>
                 <section class="content-section  content-section--dish">
                     <ul class="content-section__list list">
@@ -136,9 +137,9 @@
                             </button>                            
                         </li>                        
                     </ul>
-                    <div class="conatent-section__button-add-wrapper">
+                    <!-- <div class="conatent-section__button-add-wrapper">
                         <button type="button" class="content-section__button-add">Добавить</button>
-                    </div>                     
+                    </div>                      -->
                 </section>
             </div>
           </section>

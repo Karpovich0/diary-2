@@ -8,7 +8,8 @@ const filterPeriod =  document.querySelector(".filter__radio-button");
 const filterBack =  document.querySelector(".filter__period-button-back");
 const filterShow =  document.querySelector(".filter__period-button-show");
 const filterPeriodWrapper = document.querySelector(".filter__period-wrapper");
-let form = document.querySelector(".filter__body");
+const filterValue = document.querySelector(".checkbox-value");
+const form = document.querySelector(".filter__body");
 
 filterButton.addEventListener("click", function(){
     toggleList();
@@ -17,8 +18,8 @@ filterButton.addEventListener("click", function(){
 filterLabelArray.forEach((item, index) => item.addEventListener("click", function(e){
     toggleList();
     filterButtonText.innerHTML = filterLabelArray[index].innerHTML;
-    console.log(filterRadioInputArray[index].value);  
-    makeRequest();   
+    filterValue.value = filterRadioInputArray[index].value;
+    makeRequest(form);       
 }));
 
 filterPeriod.addEventListener("click", function(){
@@ -33,19 +34,17 @@ filterShow.addEventListener("click", function(){
     filterPeriodWrapper.classList.remove("filter__period-wrapper--opened");     
     filterRadioInputArray.forEach(item => item.checked = false);
     toggleList();
-    filterButtonText.innerHTML = filterPeriod.innerHTML;
-    makeRequest();    
+    filterButtonText.innerHTML = filterPeriod.innerHTML;   
+    filterValue.value = "";
+    makeRequest(form);       
 });
 
 function toggleList(){    
     filterBody.classList.toggle("filter__body--visible");
     filterSpan.classList.toggle("filter__button-span--opened");
 }
-let i = 0;
 
-function makeRequest(){
-    i++;
-    console.log(i);
+function makeRequest(form){
     const formData = new FormData(form);
     const searchParam = new URLSearchParams(formData); 
     // change link
@@ -57,7 +56,8 @@ function makeRequest(){
     }).then(function(text){
         console.log(text);
     });
-}
+};
+
 
 
 
