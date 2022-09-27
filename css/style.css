@@ -2091,6 +2091,10 @@ input[type=number] {
   font-family: inherit;
 }
 
+.filter__period-input-date.unfilled {
+  border: 2px solid rgba(255, 0, 0, 0.7);
+}
+
 .filter__period-button-show {
   height: 34px;
   width: 100%;

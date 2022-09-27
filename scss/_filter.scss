@@ -172,6 +172,10 @@
         border-radius: 3px;
         font-family: inherit;
     }
+    &__period-input-date.unfilled{
+        border: 2px solid rgba(red, 0.7);
+      }
+
     &__period-button-show{  
         height: 34px;
         width: 100%;

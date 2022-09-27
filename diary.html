@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./css/drop-default-styles.css">
     <link rel="stylesheet" href="./css/style.css">  
 </head>
-<body>
+<body data-user-id="123123" class="body">
     <header class="header">
         <h1 class="header__title">Дневник</h1>        
         <button type="button" class="header__search-btn header__search-btn--open">
@@ -60,34 +60,37 @@
                         <form class="filter__body">
                             <ul class="filter__list list">
                                 <li class="filter__item list__item">
-                                    <input id="filter-glucose-for-week" checked type="radio" class="filter__radio-input filter__radio-input--glucose visually-hidden" name="ignore-it0" value="filter-glucose-for-week">
+                                    <input id="filter-glucose-for-week" checked type="radio" class="filter__radio-input filter__radio-input--glucose visually-hidden" name="period0" value="0">
                                     <label for="filter-glucose-for-week" class="filter__radio-label filter__radio-label--glucose">За неделю</label>
                                 </li>
                                 <li class="filter__item list__item">
-                                    <input id="filter-glucose-for-month" type="radio" class="filter__radio-input filter__radio-input--glucose visually-hidden" name="ignore-it0" value="filter-glucose-for-month">
+                                    <input id="filter-glucose-for-month" type="radio" class="filter__radio-input filter__radio-input--glucose visually-hidden" name="period0" value="1">
                                     <label for="filter-glucose-for-month" class="filter__radio-label filter__radio-label--glucose">За месяц</label>
                                 </li>
                                 <li class="filter__item list__item">
-                                    <input id="filter-glucose-for-three-months" type="radio" class="filter__radio-input filter__radio-input--glucose visually-hidden" name="ignore-it0" value="filter-glucose-for-three-months">
+                                    <input id="filter-glucose-for-three-months" type="radio" class="filter__radio-input filter__radio-input--glucose visually-hidden" name="period0" value="2">
                                     <label for="filter-glucose-for-three-months" class="filter__radio-label filter__radio-label--glucose">За три месяца</label>
                                 </li>
                                 <li class="filter__item list__item">
-                                    <input id="filter-glucose-half-of-year" type="radio" class="filter__radio-input filter__radio-input--glucose visually-hidden" name="ignore-it0" value="filter-glucose-half-of-year">
+                                    <input id="filter-glucose-half-of-year" type="radio" class="filter__radio-input filter__radio-input--glucose visually-hidden" name="period0" value="3">
                                     <label for="filter-glucose-half-of-year" class="filter__radio-label filter__radio-label--glucose">За полгода</label>
                                 </li>
                                 <li class="filter__item list__item">
-                                    <input id="filter-glucose-for-year" type="radio" class="filter__radio-input filter__radio-input--glucose visually-hidden" name="ignore-it0" value="filter-glucose-for-year">
+                                    <input id="filter-glucose-for-year" type="radio" class="filter__radio-input filter__radio-input--glucose visually-hidden" name="period0" value="4">
                                     <label for="filter-glucose-for-year" class="filter__radio-label filter__radio-label--glucose">За 1 год</label>
                                 </li>
-                                <input type="text" class="visually-hidden checkbox-value" name="filter-value-glucose">
+                                <input type="text" class="visually-hidden period" name="period">
+                                
+                                <input type="text" class="visually-hidden user-id" name="user_id">
+                                <input type="text" class="visually-hidden collection" name="collection">
                                 <div class="filter__item list__item">                                    
                                     <button type="button" for="" class="filter__radio-button">За период</button>
                                     <div class="filter__period-wrapper">
                                         <button type="button" class="filter__period-button-back"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="#007e7e"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>Назад</button>
-                                        <label for="filter-period-date1" class="filter__period-input-text">Укажите первую дату:</label>
-                                        <input type="date" class="filter__period-input-date" name="filter-period-date1-glucose" id="filter-period-date1">
-                                        <label for="filter-period-date2" class="filter__period-input-text">Укажите вторую дату:</label>
-                                        <input type="date" class="filter__period-input-date" name="filter-period-date2-glucose" id="filter-period-date2">
+                                        <label for="date_start0" class="filter__period-input-text">Укажите первую дату:</label>
+                                        <input type="date" class="filter__period-input-date" name="date_start" id="date_start0">
+                                        <label for="date_end0" class="filter__period-input-text">Укажите вторую дату:</label>
+                                        <input type="date" class="filter__period-input-date" name="date_end" id="date_end0">
                                         <div class="filter__period-button-show-wrapper">
                                             <button type="button" class="filter__period-button-show">Показать за период</button>
                                         </div>
@@ -120,34 +123,36 @@
                         <form  class="filter__body">
                             <ul class="filter__list list">
                                 <li class="filter__item list__item">
-                                    <input id="filter-weight-for-week" type="radio" class="filter__radio-input filter__radio-input--weight visually-hidden" name="ignore-it1" value="filter-weight-for-week">
+                                    <input id="filter-weight-for-week" type="radio" class="filter__radio-input filter__radio-input--weight visually-hidden" name="period1" value="0">
                                     <label for="filter-weight-for-week" class="filter__radio-label filter__radio-label--weight">За неделю</label>
                                 </li>
                                 <li class="filter__item list__item">
-                                    <input id="filter-weight-for-month" checked type="radio" class="filter__radio-input filter__radio-input--weight visually-hidden" name="ignore-it1" value="filter-weight-for-month">
+                                    <input id="filter-weight-for-month" checked type="radio" class="filter__radio-input filter__radio-input--weight visually-hidden" name="period1" value="1">
                                     <label for="filter-weight-for-month" class="filter__radio-label filter__radio-label--weight">За месяц</label>
                                 </li>
                                 <li class="filter__item list__item">
-                                    <input id="filter-weight-for-three-months" type="radio" class="filter__radio-input filter__radio-input--weight visually-hidden" name="ignore-it1" value="filter-weight-for-three-months">
+                                    <input id="filter-weight-for-three-months" type="radio" class="filter__radio-input filter__radio-input--weight visually-hidden" name="period1" value="2">
                                     <label for="filter-weight-for-three-months" class="filter__radio-label filter__radio-label--weight">За три месяца</label>
                                 </li>
                                 <li class="filter__item list__item">
-                                    <input id="filter-weight-half-of-year" type="radio" class="filter__radio-input filter__radio-input--weight visually-hidden" name="ignore-it1" value="filter-weight-half-of-year">
+                                    <input id="filter-weight-half-of-year" type="radio" class="filter__radio-input filter__radio-input--weight visually-hidden" name="period1" value="3">
                                     <label for="filter-weight-half-of-year" class="filter__radio-label filter__radio-label--weight">За полгода</label>
                                 </li>
                                 <li class="filter__item list__item">
-                                    <input id="filter-weight-for-year" type="radio" class="filter__radio-input filter__radio-input--weight visually-hidden" name="ignore-it1" value="filter-weight-for-year">
+                                    <input id="filter-weight-for-year" type="radio" class="filter__radio-input filter__radio-input--weight visually-hidden" name="period1" value="4">
                                     <label for="filter-weight-for-year" class="filter__radio-label filter__radio-label--weight">За 1 год</label>
                                 </li>
-                                <input type="text" class="visually-hidden checkbox-value" name="filter-value-weight">
+                                <input type="text" class="visually-hidden period" name="period">
+                                <input type="text" class="visually-hidden user-id" name="user_id">
+                                <input type="text" class="visually-hidden collection" name="collection">
                                 <div class="filter__item list__item">                                    
                                     <button type="button" for="" class="filter__radio-button">За период</button>
                                     <div class="filter__period-wrapper">
                                         <button type="button" class="filter__period-button-back"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="#007e7e"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>Назад</button>
-                                        <label for="filter-period-date1" class="filter__period-input-text">Укажите первую дату:</label>
-                                        <input type="date" class="filter__period-input-date" name="filter-period-date1-weight" id="filter-period-date1">
-                                        <label for="filter-period-date2" class="filter__period-input-text">Укажите вторую дату:</label>
-                                        <input type="date" class="filter__period-input-date" name="filter-period-date2-weight" id="filter-period-date2">
+                                        <label for="date_start1" class="filter__period-input-text">Укажите первую дату:</label>
+                                        <input type="date" class="filter__period-input-date" name="date_start" id="date_start1">
+                                        <label for="date_end1" class="filter__period-input-text">Укажите вторую дату:</label>
+                                        <input type="date" class="filter__period-input-date" name="date_end" id="date_end1">
                                         <div class="filter__period-button-show-wrapper">
                                             <button type="button" class="filter__period-button-show">Показать за период</button>
                                         </div>
@@ -179,34 +184,37 @@
                         <form  class="filter__body">
                             <ul class="filter__list list">
                                 <li class="filter__item list__item">
-                                    <input id="filter-dish-for-week" checked type="radio" class="filter__radio-input filter__radio-input--dish visually-hidden" name="ignore-it2" value="filter-dish-for-week">
+                                    <input id="filter-dish-for-week" checked type="radio" class="filter__radio-input filter__radio-input--dish visually-hidden" name="period2" value="0">
                                     <label for="filter-dish-for-week" class="filter__radio-label filter__radio-label--dish">За неделю</label>
                                 </li>
                                 <li class="filter__item list__item">
-                                    <input id="filter-dish-for-month" type="radio" class="filter__radio-input filter__radio-input--dish visually-hidden" name="ignore-it2" value="filter-dish-for-month">
+                                    <input id="filter-dish-for-month" type="radio" class="filter__radio-input filter__radio-input--dish visually-hidden" name="period2" value="1">
                                     <label for="filter-dish-for-month" class="filter__radio-label filter__radio-label--dish">За месяц</label>
                                 </li>
                                 <li class="filter__item list__item">
-                                    <input id="filter-dish-for-three-months" type="radio" class="filter__radio-input filter__radio-input--dish visually-hidden" name="ignore-it2" value="filter-dish-for-three-months">
+                                    <input id="filter-dish-for-three-months" type="radio" class="filter__radio-input filter__radio-input--dish visually-hidden" name="period2" value="2">
                                     <label for="filter-dish-for-three-months" class="filter__radio-label filter__radio-label--dish">За три месяца</label>
                                 </li>
                                 <li class="filter__item list__item">
-                                    <input id="filter-dish-half-of-year" type="radio" class="filter__radio-input filter__radio-input--dish visually-hidden" name="ignore-it2" value="filter-dish-half-of-year">
+                                    <input id="filter-dish-half-of-year" type="radio" class="filter__radio-input filter__radio-input--dish visually-hidden" name="period2" value="3">
                                     <label for="filter-dish-half-of-year" class="filter__radio-label filter__radio-label--dish">За полгода</label>
                                 </li>
                                 <li class="filter__item list__item">
-                                    <input id="filter-dish-for-year" type="radio" class="filter__radio-input filter__radio-input--dish visually-hidden" name="ignore-it2" value="filter-dish-for-year">
+                                    <input id="filter-dish-for-year" type="radio" class="filter__radio-input filter__radio-input--dish visually-hidden" name="period2" value="4">
                                     <label for="filter-dish-for-year" class="filter__radio-label filter__radio-label--dish">За 1 год</label>
                                 </li>
-                                <input type="text" class="visually-hidden checkbox-value" name="filter-value-dish">
+                                <input type="text" class="visually-hidden period"  name="period">
+                                
+                                <input type="text" class="visually-hidden user-id" name="user_id">
+                                <input type="text" class="visually-hidden collection" name="collection">
                                 <div class="filter__item list__item">                                    
                                     <button type="button" for="" class="filter__radio-button">За период</button>
                                     <div class="filter__period-wrapper">
                                         <button type="button" class="filter__period-button-back"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="#007e7e"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>Назад</button>
-                                        <label for="filter-period-date1" class="filter__period-input-text">Укажите первую дату:</label>
-                                        <input type="date" class="filter__period-input-date" name="filter-period-date1-dish" id="filter-period-date1">
-                                        <label for="filter-period-date2" class="filter__period-input-text">Укажите вторую дату:</label>
-                                        <input type="date" class="filter__period-input-date" name="filter-period-date2-dish" id="filter-period-date2">
+                                        <label for="date_start2" class="filter__period-input-text">Укажите первую дату:</label>
+                                        <input type="date" class="filter__period-input-date" name="date_start" id="date_start2">
+                                        <label for="date_end2" class="filter__period-input-text">Укажите вторую дату:</label>
+                                        <input type="date" class="filter__period-input-date" name="date_end" id="date_end2">
                                         <div class="filter__period-button-show-wrapper">
                                             <button type="button" class="filter__period-button-show">Показать за период</button>
                                         </div>

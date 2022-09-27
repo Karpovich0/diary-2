@@ -18,11 +18,18 @@ const filterBackArray =  document.querySelectorAll(".filter__period-button-back"
 const filterShowArray =  document.querySelectorAll(".filter__period-button-show");
 const filterPeriodWrapperArray = document.querySelectorAll(".filter__period-wrapper");
 
-const filterValueArray = document.querySelectorAll(".checkbox-value");
+const periodArray = document.querySelectorAll(".period");
+const collectionArray = document.querySelectorAll(".collection");
 
 const formArray = document.querySelectorAll(".filter__body");
 
 const dataFilterButtonArray = document.querySelectorAll(".data__button");
+
+const filterDateStart = document.querySelectorAll(".filter__period-input-date[name=date_start]");
+const filterDateEnd = document.querySelectorAll(".filter__period-input-date[name=date_end]");
+
+const userId = document.querySelector(".body");
+const userIdArray = document.querySelectorAll(".user-id");
 
 let filterFormIndex = 0;
 
@@ -48,19 +55,23 @@ filterPeriodArray.forEach((item) => item.addEventListener("click", function(){
     })
 );
 
-filterBackArray.forEach((item) => item.addEventListener("click", function(){
+filterBackArray.forEach((item, index) => item.addEventListener("click", function(){
         filterPeriodWrapperArray[filterFormIndex].classList.remove("filter__period-wrapper--opened");
+        removeRed(index);
     })
 );
 
 
 filterShowArray.forEach((item, index) =>  item.addEventListener("click", function(){
-        filterPeriodWrapperArray[filterFormIndex].classList.remove("filter__period-wrapper--opened");     
-        filterRadioInputArray[filterFormIndex].forEach(item => item.checked = false);
-        toggleList(filterFormIndex);
-        filterButtonTextArray[filterFormIndex].innerHTML = filterPeriodArray[filterFormIndex].innerHTML;   
-        filterValueArray[filterFormIndex].value = "";
-        makeRequest();     
+        if(checkFilledDate(index)){
+            filterPeriodWrapperArray[filterFormIndex].classList.remove("filter__period-wrapper--opened");     
+            filterRadioInputArray[filterFormIndex].forEach(item => item.checked = false);
+            toggleList(filterFormIndex);
+            filterButtonTextArray[filterFormIndex].innerHTML = filterPeriodArray[filterFormIndex].  innerHTML;   
+            periodArray[filterFormIndex].value = "5";
+            removeRed(index);
+            makeRequest();  
+        }           
     })
 );
 
@@ -70,8 +81,17 @@ function toggleList(index){
 }
 
 function makeRequest(){
+    if(filterFormIndex===0) {
+        collectionArray[filterFormIndex].value = "glucose";
+    }else if(filterFormIndex===1){
+        collectionArray[filterFormIndex].value = "weight";
+    }else if(filterFormIndex===2){
+        collectionArray[filterFormIndex].value = "dish";
+    }
+    userIdArray[filterFormIndex].value = userId.dataset.userId;
     const formData = new FormData(formArray[filterFormIndex]);
-    const searchParam = new URLSearchParams(formData); 
+
+    const searchParam = corretRequest(formData, filterFormIndex)
     // change link
     fetch('https://httpbin.org/post', {
         method: 'POST',
@@ -87,7 +107,7 @@ function setListener(arr, inputArray){
     arr.forEach((item, index) => item.addEventListener("click", function(e){
         toggleList(filterFormIndex);
         filterButtonTextArray[filterFormIndex].innerHTML = arr[index].innerHTML;
-        filterValueArray[filterFormIndex].value = inputArray[index].value;
+        periodArray[filterFormIndex].value = inputArray[index].value;
         makeRequest();       
     }));
 }
@@ -104,6 +124,67 @@ function closeFilter(index, length){
         }
     }
     
+}
+
+function corretRequest(formData, index){ 
+    let searchParam = new URLSearchParams(formData); 
+    if(index === 0){
+        searchParam.delete("period0");
+    }else if(index === 1){
+        searchParam.delete("period1");
+    }else if(index === 2){
+        searchParam.delete("period2");
+    }   
+
+    let arr = {};    
+
+    arr.period = searchParam.get("period");
+
+    if(searchParam.get("period")!=="5"){
+        searchParam.delete("date_start");
+        searchParam.delete("date_end");
+        filterDateStart[filterFormIndex].value = "";
+        filterDateEnd[filterFormIndex].value = "";
+    }else{
+        arr.date_start = searchParam.get("date_start");
+        arr.date_end = searchParam.get("date_end");
+        searchParam.delete("date_start");
+        searchParam.delete("date_end")
+    }
+    searchParam.delete("period");
+
+    let arrJson = JSON.stringify(arr);
+
+    searchParam.set("filter",arrJson);
+
+    return searchParam;
+}
+
+function checkFilledDate(index){
+    if(filterDateStart[index].value !== "" &&  filterDateEnd[index].value !== ""){
+        return true;
+    }
+    if(filterDateStart[index].value === ""){
+        filterDateStart[index].classList.add("unfilled");
+    }
+    if(filterDateEnd[index].value === ""){
+        filterDateEnd[index].classList.add("unfilled");
+    }
+    if(filterDateStart[index].value !== ""){
+        filterDateStart[index].classList.remove("unfilled");
+    }
+    if(filterDateEnd[index].value !== ""){
+        filterDateEnd[index].classList.remove("unfilled");
+    }
+}
+
+function removeRed(index){
+    if(filterDateStart[index].classList.contains("unfilled")){
+        filterDateStart[index].classList.remove("unfilled");
+    }
+    if(filterDateEnd[index].classList.contains("unfilled")){
+        filterDateEnd[index].classList.remove("unfilled");
+    }
 }
 
 
